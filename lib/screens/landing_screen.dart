@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../helpers/data_collector.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -17,9 +18,10 @@ class LandingScreen extends StatelessWidget {
             Icons.play_circle_outline,
             color: Color(0xFF4767EB),
           ),
-          onPressed: () {
+          onPressed: () async {
             print('hey');
-            // LightCollector.startListening();
+            await Permission.microphone.request();
+            LightCollector.startListening();
             SoundCollector.startRecorder();
           },
         ),
