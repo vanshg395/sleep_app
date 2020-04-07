@@ -19,7 +19,8 @@ class LandingScreen extends StatelessWidget {
           ),
           onPressed: () {
             print('hey');
-            LightCollector.startListening();
+            // LightCollector.startListening();
+            SoundCollector.startRecorder();
           },
         ),
       ),
