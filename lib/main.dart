@@ -13,3 +13,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// import 'dart:async';
+
+// main() {
+//   const oneSec = const Duration(seconds: 1);
+//   Timer t = new Timer.periodic(oneSec, (Timer t) => print('hi!'));
+// }
