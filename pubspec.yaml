@@ -29,6 +29,7 @@ dependencies:
   sensors: ^0.4.1+10
   csv: ^4.0.3
   path_provider: ^1.6.5
+  wakelock: ^0.1.4+1
   permission_handler:
 
 dev_dependencies:

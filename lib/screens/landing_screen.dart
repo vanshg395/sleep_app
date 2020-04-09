@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:wakelock/wakelock.dart';
 
 import '../helpers/data_collector.dart';
 
@@ -32,12 +33,14 @@ class _LandingScreenState extends State<LandingScreen> {
                 ? null
                 : () async {
                     print('hey');
+                    Wakelock.enable();
                     setState(() {
                       _isListening = true;
                     });
                     await Permission.microphone.request();
                     await Permission.activityRecognition.request();
                     await Permission.storage.request();
+                    await Permission.sensors.request();
                     LightCollector.startListening();
                     SoundCollector.startRecorder();
                     MotionCollector.startListening();
@@ -54,6 +57,7 @@ class _LandingScreenState extends State<LandingScreen> {
             onPressed: _isListening
                 ? () async {
                     print('hey');
+                    Wakelock.disable();
                     setState(() {
                       _isListening = false;
                     });
